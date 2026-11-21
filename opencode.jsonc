@@ -1,0 +1,63 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "permissions": [
+    // Не дозволяти читати файли із секретами
+    {
+      "action": "read",
+      "resource": "*.env",
+      "effect": "deny"
+    },
+    {
+      "action": "read",
+      "resource": "*.env.*",
+      "effect": "deny"
+    },
+    {
+      "action": "read",
+      "resource": "*.env.example",
+      "effect": "allow"
+    },
+
+
+    // Запитувати дозвіл на доступ поза проєктом
+    {
+      "action": "external_directory",
+      "resource": "*",
+      "effect": "ask"
+    },
+
+
+    // Запитувати підтвердження перед shell-командами
+    {
+      "action": "shell",
+      "resource": "*",
+      "effect": "ask"
+    },
+
+
+    // Звичайні Git-перевірки дозволити
+    {
+      "action": "shell",
+      "resource": "git status *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "git diff *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "git log *",
+      "effect": "allow"
+    },
+
+
+    // Заборонити push без окремого рішення
+    {
+      "action": "shell",
+      "resource": "git push *",
+      "effect": "deny"
+    }
+  ]
+}
