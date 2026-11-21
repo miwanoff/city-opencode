@@ -1,0 +1,22 @@
+# Секрети
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+
+# Локальні налаштування
+*.local.*
+
+# Логи, кеш і тимчасові файли
+*.log
+*.tmp
+*.bak
+*~
+/tmp/
+/cache/
+
+# Файли операційної системи
+.DS_Store
+Thumbs.db
+desktop.ini
